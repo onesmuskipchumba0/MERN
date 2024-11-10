@@ -30,8 +30,8 @@ A modern web application for managing products, built with React and Node.js.
 1. Clone the repository
 
 ```bash
-git clone https://github.com/onesmuskipchumba0/product-management.git
-cd product-management
+git clone https://github.com/onesmuskipchumba0/MERN.git
+cd MERN
 ```
 
 2. Install dependencies for frontend
