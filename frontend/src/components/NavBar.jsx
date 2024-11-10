@@ -10,7 +10,7 @@ export default function NavBar () {
     console.log('Search clicked');
   };
   return (
-    <Box justifyContent={'center'} padding={5} className='flex w-full bg-slate-800 items-center'>
+    <Box position={'sticky'} top={0} zIndex={100} boxShadow={'md'} justifyContent={'center'} padding={5} className='flex w-full bg-slate-800 items-center'>
         <HStack width={'100%'}>
             <Box justifyContent={'space-between'} className='flex items-center' width={'100%'} gap={6}>
               <Link to="/" className='text-white flex items-center gap-2 hover:text-slate-300'>
