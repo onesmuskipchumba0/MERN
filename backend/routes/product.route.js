@@ -45,6 +45,20 @@ router.get("/", async (req, res) => {
         console.log(error.message);
     }
 })
+
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({success: false, message: "Invalid product ID"});
+    }
+    try {
+        const product = await Product.findById(id);
+        res.status(200).json({success: true, product});
+    } catch (error) {
+        res.status(500).json({success: false, message: error.message});
+        console.log(error.message);
+    }
+})
  //update product 
  router.put("/:id", async (req, res) => {
     const { id } = req.params;
