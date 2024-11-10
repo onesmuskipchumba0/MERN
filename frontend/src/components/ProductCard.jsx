@@ -59,7 +59,7 @@ const ProductCard = ({product}) => {
             fontWeight="bold"
             color="teal.300"
           >
-            ${product.price}
+            KSH {product.price}
           </Text>
         </Flex>
 
