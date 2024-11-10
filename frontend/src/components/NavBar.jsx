@@ -1,13 +1,14 @@
-import { Box, Container, HStack, Input, VStack } from '@chakra-ui/react'
+import { Box, Container, HStack, Input, Tooltip, } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { LuPlus, LuPackage, LuSearch } from 'react-icons/lu'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function NavBar () {
     const [search, setSearch] = useState('');
-
+    const navigate = useNavigate()
   const handleSearch = () => {
-    console.log('Search clicked');
+    if(search.trim() === '') return
+    navigate(`/search/${search}`)
   };
   return (
     <Box position={'sticky'} top={0} zIndex={100} boxShadow={'md'} justifyContent={'center'} padding={5} className='flex w-full bg-slate-800 items-center'>
@@ -28,6 +29,7 @@ export default function NavBar () {
               <Link className='bg-slate-600 hover:bg-slate-500 hover:text-white text-white p-2 rounded-md' to="/create">
                 <LuPlus/>
               </Link>
+             
             </Box>
         </HStack>
     </Box>

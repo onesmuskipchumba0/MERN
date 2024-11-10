@@ -46,6 +46,17 @@ router.get("/", async (req, res) => {
     }
 })
 
+//search for a product
+router.get("/search", async (req, res) => {
+    const { name } = req.query;
+    try {
+        const products = await Product.find({ name: { $regex: name, $options: 'i' } });
+        res.status(200).json({success: true, products});
+    } catch (error) {
+        res.status(500).json({success: false, message: error.message});
+        console.log(error.message);
+    }
+})
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)) {

@@ -1,7 +1,7 @@
 import { Box, Image, Text, VStack, Badge, Flex, Button } from '@chakra-ui/react'
 import React from 'react'
+import { LuFileEdit, LuTrash } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
-
 const ProductCard = ({product}) => {
     const navigate = useNavigate();
 
@@ -88,8 +88,16 @@ const ProductCard = ({product}) => {
         >
           Added {new Date(product.createdAt).toLocaleDateString()}
         </Text>
-        <Button onClick={onUpdate}>Update</Button>
-        <Button onClick={onDelete}>Delete</Button>
+        <div className="flex justify-center gap-2">
+          <button onClick={onUpdate} className="flex items-center gap-2 text-sm px-4 py-2 rounded-md border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-colors">
+            <LuFileEdit />
+            Update
+          </button>
+          <button onClick={onDelete} className="flex items-center gap-2 text-sm px-4 py-2 rounded-md border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-colors">
+            <LuTrash />
+            Delete
+          </button>
+        </div>
       </VStack>
     </Box>
   )
